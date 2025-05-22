@@ -19,7 +19,7 @@ A command-line tool to clean up project directories by removing build artifacts 
 ### From crates.io (recommended)
 
 ```bash
-cargo install begone-cli
+cargo install begone
 ```
 
 ### From GitHub Releases
@@ -35,16 +35,16 @@ cargo install begone-cli
 3. Run `cargo install --path .`
 
 ```bash
-cargo install begone-cli
+cargo install begone
 ```
 
 ## Usage
 
 ```
-begone-cli 0.1.0
+begone 0.1.0
 A CLI tool to clean up project directories by removing build artifacts and dependencies
 
-Usage: begone-cli <COMMAND>
+Usage: begone <COMMAND>
 
 Commands:
   rust      Clean Rust project directories (target/)
@@ -67,22 +67,22 @@ Options:
 
 Clean Rust projects recursively in the current directory:
 ```bash
-begone-cli rust
+begone rust
 ```
 
 Clean Python projects in verbose mode:
 ```bash
-begone-cli -v python
+begone -v python
 ```
 
 Preview what would be deleted (dry run) for JavaScript/TypeScript projects:
 ```bash
-begone-cli --dry-run js
+begone --dry-run js
 ```
 
 Clean all supported project types:
 ```bash
-begone-cli all
+begone all
 ```
 
 ## License
