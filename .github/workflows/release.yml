@@ -92,9 +92,12 @@ jobs:
     name: Publish to crates.io
     needs: [build, release]
     runs-on: ubuntu-latest
+    if: ${{ secrets.CARGO_REGISTRY_TOKEN != '' }}  # Only run if token is present
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
+        with:
+          ref: release
 
       - name: Install Rust
         uses: actions-rs/toolchain@v1
@@ -107,6 +110,10 @@ jobs:
         uses: actions-rs/cargo@v1
         with:
           command: publish
-          args: --no-verify
+          args: --no-verify --token ${{ secrets.CARGO_REGISTRY_TOKEN }}
         env:
           CARGO_REGISTRY_TOKEN: ${{ secrets.CARGO_REGISTRY_TOKEN }}
+
+      - name: Verify publish
+        if: ${{ success() }}
+        run: echo "Successfully published to crates.io!"
