@@ -1,5 +1,5 @@
 [package]
-name = "begone-cli"
+name = "begone"
 version = "0.1.0"
 authors = ["Rounak Sen <103501472+rony0000013@users.noreply.github.com>"]
 edition = "2024"
