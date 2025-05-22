@@ -92,7 +92,6 @@ jobs:
     name: Publish to crates.io
     needs: [build, release]
     runs-on: ubuntu-latest
-    if: ${{ secrets.CARGO_REGISTRY_TOKEN != '' }}  # Only run if token is present
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
